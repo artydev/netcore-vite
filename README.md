@@ -1,5 +1,5 @@
 # Attention
-
+```js
 import { defineConfig } from 'vite'
 import { readFileSync } from 'fs'
 import { certFilePath, keyFilePath } from './aspnetcore-https'
@@ -23,7 +23,7 @@ export default defineConfig({
     }
   }
 })
-
+```
 
 
 # ASP.NET Core + Vite = 💖
