@@ -1,4 +1,4 @@
-# Attention
+# Attention - modifier vite.config.ts selon : 
 ```js
 import { defineConfig } from 'vite'
 import { readFileSync } from 'fs'
