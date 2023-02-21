@@ -1,3 +1,31 @@
+# Attention
+
+import { defineConfig } from 'vite'
+import { readFileSync } from 'fs'
+import { certFilePath, keyFilePath } from './aspnetcore-https'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  server: {
+    https: {
+      key: readFileSync(keyFilePath),
+      cert: readFileSync(certFilePath)
+    },
+    port: 5002,
+    strictPort: true,
+    proxy: {
+      '/api': {
+        target: 'https://localhost:5001/',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  }
+})
+
+
+
 # ASP.NET Core + Vite = 💖
 
 This repository contains a dotnet project template for creating a ASP.NET Core web applications that integrates with the [Vite](https://vitejs.dev) frontend tooling.
